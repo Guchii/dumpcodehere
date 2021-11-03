@@ -1,15 +1,20 @@
 import React from 'react'
 import { HiMenuAlt3 } from 'react-icons/hi'
 import { FaKissWinkHeart } from 'react-icons/fa'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 const Layout = ({ children }) => {
+    const router = useRouter()
     return (
         <div className="d-flex flex-column justify-content-between min-vh-100 bg-dark text-light">
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow p-4">
                 <div className="container-fluid">
-                    <a className="navbar-brand fw-bold" href="#">
+                    <Link href="/">
+                    <a className="navbar-brand fw-bold">
                         DCH
                     </a>
+                    </Link>
                     <button
                         className="navbar-toggler"
                         type="button"
@@ -25,13 +30,23 @@ const Layout = ({ children }) => {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <a className="nav-link" href="#">
-                                    Create
+                                <Link href="/dump">
+                                <a className="nav-link">
+                                    Dump
                                 </a>
+                                </Link>
+                                
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">
+                                <Link href="/find">
+                                <a className="nav-link">
                                     Find
+                                </a>
+                                </Link>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link disabled">
+                                    About
                                 </a>
                             </li>
                         </ul>
@@ -39,7 +54,7 @@ const Layout = ({ children }) => {
                 </div>
             </nav>
             {children}
-            <footer className="d-flex flex-wrap justify-content-between align-items-center text-light border-top px-4 pt-2">
+            <footer className="d-flex flex-wrap justify-content-between align-items-center text-light border-top px-4 pt-3">
                 <p className="fw-bold">dump code here</p>
                 <p className="fw-bold">
                     made with <FaKissWinkHeart />

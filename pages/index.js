@@ -1,6 +1,8 @@
+import { useRouter } from 'next/router'
 import React from 'react'
 import Layout from '../components/layout'
 const Index = () => {
+    const router = useRouter();
     return (
         <Layout>
             <div className="text-center px-4 py-52 h-50 d-flex flex-column justify-content-center">
@@ -10,10 +12,14 @@ const Index = () => {
                     shared publicly by others.
                 </p>
                 <div className="d-flex justify-content-center align-items-center">
-                    <button className="btn btn-success fw-bold px-5 py-2 me-2 shadow">
+                    <button className="btn btn-success fw-bold px-5 py-2 me-2 shadow"
+                    onClick={()=>router.push('/dump')}
+                    >
                         Dump Now
                     </button>
-                    <button className="btn btn-danger px-5 py-2 fw-bold shadow">
+                    <button className="btn btn-danger px-5 py-2 fw-bold shadow"
+                    onClick={()=>router.push('/find')}
+                    >
                         Find Stuff
                     </button>
                 </div>
