@@ -1,15 +1,14 @@
 import React from 'react'
-import Link from 'next/link'
+import NextLink from 'next/link'
 import Layout from '../../components/layout'
 
-
-const Main = ({ myWalls }) => {
+const Main = () => {
     return (
         <Layout>
-            <h1>All Snippets Here!!</h1>
-            <Link href="/">
-                <a>Back To Home</a>
-            </Link>
+            <Text h1>All Snippets Here!!</Text>
+            <NextLink href="/">
+                <Link block>Back To Home</Link>
+            </NextLink>
         </Layout>
     )
 }
