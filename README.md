@@ -1,1 +1,3 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+# Dump Code Here
+- paste bin like site to share your code/text with the world.
+- made using next.js & mongodb.
