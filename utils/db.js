@@ -3,7 +3,7 @@ let isConnected = false
 
 const connect = async () => {
     if (!isConnected) {
-        await mongoose.connect('mongodb://localhost/dumps')
+        await mongoose.connect(process.env.MONGODB_URL)
     }
     isConnected = true
 }

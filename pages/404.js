@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 const ErrorPage = () => {
     const router = useRouter();
     useEffect(() => {
-        // setTimeout(()=>router.push('/'), 5000)
+        setTimeout(()=>router.push('/'), 5000)
     })
     return (
         <div className="text-center d-flex flex-column justify-content-center align-items-center">
