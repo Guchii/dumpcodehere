@@ -5,7 +5,7 @@ import { AiFillCopy, AiOutlineLink } from "react-icons/ai"
 import connect from "../utils/db"
 import copy from "clipboard-copy"
 
-const showSnippet = ({ found, info, code }) => {
+const showSnippet = ({ found=null, info=null, code=null }) => {
     const router = useRouter()
     useEffect(() => {
         if (!found) {
@@ -26,7 +26,7 @@ const showSnippet = ({ found, info, code }) => {
                             copy(code)}}><AiFillCopy /></button>
                     </div>
                 </div>
-                <textarea className="fs-4 bg-dark text-light font-monospace" disabled rows={10} style={{ resize: "none" }}>{code}</textarea>
+                <textarea className="fs-4 bg-dark text-light font-monospace" disabled rows={10} style={{ resize: "none" }} value={code}/>
             </div>
         </>
     )
