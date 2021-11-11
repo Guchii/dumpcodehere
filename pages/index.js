@@ -1,10 +1,7 @@
 import { useRouter } from 'next/router'
-import React from 'react'
-import Layout from '../components/layout'
 const Index = () => {
     const router = useRouter();
     return (
-        <Layout>
             <div className="text-center px-4 py-52 h-50 d-flex flex-column justify-content-center">
                 <h1 className="display-5 fw-bold">Dump Code Here</h1>
                 <p className="lead">
@@ -24,7 +21,6 @@ const Index = () => {
                     </button>
                 </div>
             </div>
-        </Layout>
     )
 }
 
