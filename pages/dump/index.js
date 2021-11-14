@@ -42,7 +42,7 @@ const Dump = () => {
             <Toaster />
             <div className="d-inline-flex justify-content-between pe-1 mb-3" style={{ width: "150px" }}>
                 <div>
-                    <span className="fs-6 mb-5">slug: </span>
+                    {/* <span className="fs-6 mb-5">slug: </span> */}
                     <span className="fs-3 fw-bolder">{slug}</span>
                 </div>
 

@@ -1,0 +1,16 @@
+.footer__left {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    &:hover{
+        transition: 100ms all;
+        filter: brightness(0.5) ;
+    } 
+}
+
+.icon {
+    height: 25px;
+    width: 25px;
+    margin-right: 10px;
+    transform: translateY(-2px);     
+}
