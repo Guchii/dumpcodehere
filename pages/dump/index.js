@@ -1,24 +1,19 @@
 import { useRouter } from 'next/router'
 import { useEffect, useRef, useState } from 'react'
 import { AiOutlineReload } from 'react-icons/ai'
-
+import { generate } from "randomstring";
+import toast, { Toaster } from "react-hot-toast"
 const Dump = () => {
     useEffect(() => {
-        setSlugToField();
+        setSlug(getSlug())
     }, [])
     const [slug, setSlug] = useState("0000");
     const infoRef = useRef(null)
     const codeRef = useRef(null)
     const router = useRouter()
-    async function setSlugToField() {
-        const res = fetch('/api/getSlug');
-        const data = await (await res).json();
-        const slug = data.randomSlug;
-        setSlug(slug);
-    }
     async function dumpHandler() {
         if (infoRef.current.value !== "" && codeRef.current.value !== "") {
-            await fetch('/api/create', {
+            const prom = fetch('/api/create', {
                 method: "POST",
                 body: JSON.stringify({
                     slug,
@@ -29,26 +24,29 @@ const Dump = () => {
                     "Content-Type": "application/json"
                 }
             });
-            // setSlugToField();
-            // infoRef.current.value = "";
-            // codeRef.current.value = "";
+            await toast.promise(prom, {
+                loading: 'Dumping your Code',
+                success: 'Successfull',
+                error: 'Error Occured while Dumping your Code',
+            });
             router.push(`/${slug}`);
         } else {
             // do something on null input
-            console.log("Null input")
+            toast.error("Please Enter All of the Required Inputs.", {
+                duration: 2000,
+            })
         }
-
-
     }
     return (
         <div className="d-flex flex-column p-5 mx-1 mx-lg-5">
+            <Toaster />
             <div className="d-inline-flex justify-content-between pe-1 mb-3" style={{ width: "150px" }}>
                 <div>
                     <span className="fs-6 mb-5">slug: </span>
                     <span className="fs-3 fw-bolder">{slug}</span>
                 </div>
 
-                <span className="link-light mt-2" onClick={setSlugToField}><AiOutlineReload /></span>
+                <span className="link-light mt-2" onClick={() => setSlug(getSlug())}><AiOutlineReload /></span>
             </div>
 
             <div className="mb-3">
@@ -84,4 +82,13 @@ const Dump = () => {
         </div>
     )
 }
+
+function getSlug() {
+    const randomSlug = generate({
+        length: 4,
+        charset: 'alphanumeric'
+    });
+    return randomSlug;
+}
+
 export default Dump
