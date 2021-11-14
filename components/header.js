@@ -24,8 +24,8 @@ const header = () => {
                         <Navlink href="/" text="Home" />
                         <Navlink href="/dump" text="Dump" />
                         <Navlink href="/find" text="Find" />
-                        <Navlink href="/about" text="API" />
-                        <Navlink href="/api" text="About" />
+                        <Navlink href="/useapi" text="API" />
+                        <Navlink href="/about" text="About" />
                     </ul>
                 </div>
             </div>

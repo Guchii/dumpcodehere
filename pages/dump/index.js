@@ -42,7 +42,6 @@ const Dump = () => {
             <Toaster />
             <div className="d-inline-flex justify-content-between pe-1 mb-3" style={{ width: "150px" }}>
                 <div>
-                    {/* <span className="fs-6 mb-5">slug: </span> */}
                     <span className="fs-3 fw-bolder">{slug}</span>
                 </div>
 
@@ -55,7 +54,7 @@ const Dump = () => {
                     type="text"
                     id="info"
                     placeholder="Binary Search Tree..."
-                    className="form-control"
+                    className="form-control fs-5"
                     ref={infoRef}
                 />
             </div>
@@ -65,7 +64,7 @@ const Dump = () => {
                     type="textarea"
                     id="text"
                     placeholder="#include <iostream>..."
-                    className="form-control font-monospace"
+                    className="form-control font-monospace fs-5"
                     style={{
                         height: '200px',
                         resize: 'none',
@@ -73,12 +72,12 @@ const Dump = () => {
                     ref={codeRef}
                 />
             </div>
-            <button
+            <a
                 className="btn btn-success btn-lg fw-bold shadow"
                 onClick={dumpHandler}
             >
                 Dump
-            </button>
+            </a>
         </div>
     )
 }
